@@ -34,7 +34,7 @@ abstract class Base
     }
 
     public function getHeadline($article,$find){
-        return $article->filter($find)->first()->text();
+        if(count($article->filter($find)) > 0) return $article->filter($find)->first()->text();
     }
 
     public function getBodyText($article,$find){

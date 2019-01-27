@@ -10,7 +10,8 @@ class EB extends Base{
 
     public function __construct($action){
         parent::__construct(true,'/plus');
-        $this->$action();
+
+        var_dump($this->$action());
     }
 
     public function getOne(){
@@ -18,11 +19,26 @@ class EB extends Base{
     }
 
     public function getAll(){
+        $articles = [];
         foreach($this->getArticleLinksFromOverview($this->url) as $article){
-            $current = $this->getContentFromArticle($article,"#fnContentArea");
-            $headline = $this->getHeadline($current,".art-title");
-            $body = $this->getBodyText($current,"#fnBodytextTracking")->text();
-            var_dump($body);die;
+            try{
+                $current = $this->getContentFromArticle($article,"#fnContentArea");
+                $headline = $this->getHeadline($current,".art-title");
+                $text = "";
+                $thisArticle = [];
+                $body = $this->getBodyText($current,".article-bodytext")->filter("p")->each(function($node) use(&$text){
+                    if(count($node->children()) > 0) return false; //Sort p tags with children away.
+                    $text .= $node->text();
+                });
+                $thisArticle['text'] = $text;
+                $thisArticle['headline'] = $headline;
+                $thisArticle['link'] = $article;
+                array_push($articles,$thisArticle);
+            }catch(Exception $e){
+
+            }
         }
+
+        return $articles;
     }
 }
