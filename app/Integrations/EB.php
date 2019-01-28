@@ -18,20 +18,24 @@ class EB extends Base{
 
     }
 
+    private function getImage($current){
+        try{
+            if(count($current->children()->filter(".article-top .figure")) > 0) return $current->children()->filter(".article-top .figure")->first()->children()->first()->attr("src");
+        }catch(\InvalidArgumentException $e){
+            return 'error';
+        }
+    }
+
     public function getAll(){
         $articles = [];
         foreach($this->getArticleLinksFromOverview($this->url) as $article){
             try{
                 $current = $this->getContentFromArticle($article,"#fnContentArea");
                 $headline = $this->getHeadline($current,".art-title");
-                $text = "";
                 $thisArticle = [];
-                $body = $this->getBodyText($current,".article-bodytext")->filter("p")->each(function($node) use(&$text){
-                    if(count($node->children()) > 0) return false; //Sort p tags with children away.
-                    $text .= $node->text();
-                });
-                $thisArticle['text'] = $text;
+                $thisArticle['text'] = $this->getBodyText($current,".article-bodytext");
                 $thisArticle['headline'] = $headline;
+                $thisArticle['main_image'] = "https://ekstrabladet.dk/".$this->getImage($current);
                 $thisArticle['link'] = $article;
                 array_push($articles,$thisArticle);
             }catch(Exception $e){

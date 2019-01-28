@@ -38,6 +38,17 @@ abstract class Base
     }
 
     public function getBodyText($article,$find){
-        return $article->filter($find)->first();
+        try{
+            $text = "";
+            $body = $article->filter($find)->filter("p")->each(function($node) use(&$text){
+                if(count($node->children()) > 0) return false; //Sort p tags with children away.
+                $text .= $node->text();
+            });
+            return $text;
+        }catch(Exception $e){
+            return "error";
+        }
+
     }
+
 }
