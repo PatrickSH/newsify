@@ -18,7 +18,7 @@ class CreateProvidersTable extends Migration
             $table->integer('country_id')->unsigned();
             $table->string('name');
             $table->string('link');
-            $table->text('copyright_greet');
+            $table->text('copyright_greet')->nullable();
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries');
