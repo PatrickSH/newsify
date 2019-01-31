@@ -37,6 +37,14 @@ abstract class Base
         if(count($article->filter($find)) > 0) return $article->filter($find)->first()->text();
     }
 
+    public function getCategory($article,$find){
+        try{
+            if(count($article->filter($find)->filter("a")) > 0) return $article->filter($find)->filter("a")->first()->text();;
+        }catch(Exception $e){
+            return "error";
+        }
+    }
+
     public function getBodyText($article,$find){
         try{
             $text = "";

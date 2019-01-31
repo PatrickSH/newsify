@@ -37,6 +37,7 @@ class EB extends Base{
                 $thisArticle['headline'] = $headline;
                 $thisArticle['main_image'] = "https://ekstrabladet.dk/".$this->getImage($current);
                 $thisArticle['link'] = $article;
+                $thisArticle['category'] = $this->getCategory($current,".article-breadcrumb");
                 array_push($articles,$thisArticle);
             }catch(Exception $e){
 
