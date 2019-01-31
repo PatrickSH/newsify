@@ -3,6 +3,7 @@
 namespace App\Console\DK;
 
 use Illuminate\Console\Command;
+use App\Jobs\DK\EB as EBJob;
 
 class EB extends Command
 {
@@ -38,6 +39,6 @@ class EB extends Command
      */
     public function handle()
     {
-
+        app()->make(EBJob::class)->handle();
     }
 }

@@ -14,7 +14,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'provider_id', 'headline', 'link_external',
+        'provider_id', 'category_id', 'headline', 'link_external',
         'link_internal','image','content'
     ];
 }

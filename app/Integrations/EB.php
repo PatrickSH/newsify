@@ -8,10 +8,8 @@ class EB extends Base{
 
     private $url = "https://ekstrabladet.dk/";
 
-    public function __construct($action){
+    public function __construct(){
         parent::__construct(true,'/plus');
-
-        var_dump($this->$action());
     }
 
     public function getOne(){

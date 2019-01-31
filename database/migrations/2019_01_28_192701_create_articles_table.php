@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('provider_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('headline')->nullable();
             $table->string('link_internal');
             $table->string('link_external');
@@ -24,6 +25,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
 
             $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
