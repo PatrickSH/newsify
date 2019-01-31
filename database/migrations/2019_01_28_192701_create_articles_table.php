@@ -16,11 +16,11 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('provider_id')->unsigned();
-            $table->string('headline');
+            $table->string('headline')->nullable();
             $table->string('link_internal');
             $table->string('link_external');
-            $table->string('image');
-            $table->text('content');
+            $table->string('image')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
 
             $table->foreign('provider_id')->references('id')->on('providers');

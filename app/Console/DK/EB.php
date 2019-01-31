@@ -18,7 +18,7 @@ class EB extends Command
      *
      * @var string
      */
-    protected $description = 'Crwals EB and saves content';
+    protected $description = 'Crals EB and saves content';
 
 
     /**
