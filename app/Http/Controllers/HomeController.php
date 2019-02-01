@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Integrations\BT;
+use App\Integrations\TV2;
 
 class HomeController extends BaseController
 {
     public function index(){
-        $a = (new BT())->getAll();
+        $a = (new TV2())->getAll();
         var_dump($a);die;
     }
 }
