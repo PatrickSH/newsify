@@ -5,7 +5,7 @@ namespace App\Console\DK;
 use Illuminate\Console\Command;
 use App\Jobs\DK\BT as BTJob;
 
-class EB extends Command
+class BT extends Command
 {
     /**
      * The name and signature of the console command.
