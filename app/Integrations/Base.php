@@ -20,10 +20,10 @@ abstract class Base
         return $crawler->filter($find)->first();
     }
 
-    public function getArticleLinksFromOverview($url){
+    public function getArticleLinksFromOverview($url,$filter){
         $crawler = Goutte::request('GET', $url);
         $links = [];
-        $crawler->filter('.df-article-content a')->each(function ($node) use(&$links){
+        $crawler->filter($filter)->each(function ($node) use(&$links){
 
             if($this->has_premium_content && strpos($node->attr('href'),$this->premium_content_keyword) !== FALSE) return false; //Premium content string
 

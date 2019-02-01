@@ -26,7 +26,7 @@ class EB extends Base{
 
     public function getAll(){
         $articles = [];
-        foreach($this->getArticleLinksFromOverview($this->url) as $article){
+        foreach($this->getArticleLinksFromOverview($this->url,".df-article-content a") as $article){
             try{
                 $current = $this->getContentFromArticle($article,"#fnContentArea");
                 $headline = $this->getHeadline($current,".art-title");
