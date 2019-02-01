@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         DK\EB::class,
+        DK\BT::class,
         AddProvider::class
     ];
 
