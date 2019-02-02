@@ -8,9 +8,9 @@ use App\Article;
 use App\Category;
 use App\Provider;
 use App\Country;
-use App\Integrations\BT as BTIntegration;
+use App\Integrations\TV2 as TV2Integration;
 
-class BT
+class TV2
 {
     use Dispatchable,Queueable;
 
@@ -32,8 +32,8 @@ class BT
     public function handle()
     {
         $country = Country::where('code','da_DK')->first();
-        $provider = Provider::where('name','BT')->first();
-        $articles = (new BTIntegration())->getAll();
+        $provider = Provider::where('name','TV2')->first();
+        $articles = (new TV2Integration())->getAll();
         foreach($articles as $article){
             $category = Category::updateOrCreate(
                 ['country_id' => $country->id, 'name' => (isset($article['category']) && !is_null($article['category'])) ? $article['category'] : 'Unnamed category'],
@@ -45,7 +45,7 @@ class BT
                 'provider_id' => $provider->id,
                 'headline' => $article['headline'],
                 'link_external' => $article['link'],
-                'link_internal' => "/".rand(1,1000)."/article/bt/".str_slug($article['headline']),
+                'link_internal' => "/".rand(1,1000)."/article/tv2/".str_slug($article['headline']),
                 'image' => $article['main_image'],
                 'content' => $article['text'],
             ]);

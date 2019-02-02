@@ -27,7 +27,6 @@ class TV2 extends Base{
     public function getAll(){
         $articles = [];
         foreach($this->getArticleLinksFromOverview($this->url,".tv2-main article a") as $article){
-
             try{
                 $current = $this->getContentFromArticle($article,".tv2-main");
                 $headline = $this->getHeadline($current,".o-article_headline");

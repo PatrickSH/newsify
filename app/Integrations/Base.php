@@ -10,9 +10,17 @@ abstract class Base
 
     private $premium_content_keyword;
 
-    public function __construct($has_premium_content, $premium_content_keyword){
+    private $settings;
+
+    public function __construct($has_premium_content, $premium_content_keyword, $settings){
         $this->has_premium_content = $has_premium_content;
         $this->premium_content_keyword = $premium_content_keyword;
+
+        $standardSettings =
+        [
+            'ignore_link_strings' => [],
+        ];
+        $this->settings = array_replace($standardSettings,$settings);
     }
 
     public function getContentFromArticle($url, $find){
@@ -26,7 +34,11 @@ abstract class Base
         $crawler->filter($filter)->each(function ($node) use(&$links){
 
             if($this->has_premium_content && strpos($node->attr('href'),$this->premium_content_keyword) !== FALSE) return false; //Premium content string
-
+            if(!empty($this->settings['ignore_link_strings'])){ //If there is a string in this array in url return false
+                foreach($this->settings['ignore_link_strings'] as $string){
+                    if(strpos($node->attr('href'),$string) !== FALSE) return false;
+                }
+            }
             if(!in_array($node->attr('href'),$links)) array_push($links,$node->attr('href'));
         });
 
