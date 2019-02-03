@@ -10502,8 +10502,28 @@ a.text-dark:focus {
 }
 
 .provider {
-  background-color: red;
+  background: #ff512f;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 200px;
+  border-radius: 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+  cursor: pointer;
+}
+
+.provider h2 {
+  font-size: 60px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.flag-row {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 html,
@@ -10517,6 +10537,10 @@ body {
 }
 
 #app {
-  padding-top: 40px;
+  padding-top: 10px;
+}
+
+.no-padding {
+  padding: 0px !important;
 }
 
