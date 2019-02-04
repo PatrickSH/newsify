@@ -10526,6 +10526,46 @@ a.text-dark:focus {
   margin-top: 30px;
 }
 
+.single-category {
+  background: #ff512f;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 200px;
+  border-radius: 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+  cursor: pointer;
+}
+
+.single-category h2 {
+  font-size: 60px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.single-category:nth-child(even) {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.header-row {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.header-row h1 {
+  font-size: 70px;
+  background: #ff512f;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 html,
 body {
   background-color: #fff;

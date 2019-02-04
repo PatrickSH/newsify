@@ -12,7 +12,7 @@ abstract class Base
 
     private $settings;
 
-    public function __construct($has_premium_content, $premium_content_keyword, $settings){
+    public function __construct($has_premium_content, $premium_content_keyword, $settings = []){
         $this->has_premium_content = $has_premium_content;
         $this->premium_content_keyword = $premium_content_keyword;
 

@@ -12,3 +12,5 @@
 */
 
 Route::get('/',['uses' => 'HomeController@index']);
+
+$router->get('/{provider}',['uses' => 'HomeController@showProviderCats']);
