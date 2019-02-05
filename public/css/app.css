@@ -10513,6 +10513,7 @@ a.text-dark:focus {
   align-items: flex-end;
   display: flex;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .provider h2 {
@@ -10538,17 +10539,13 @@ a.text-dark:focus {
   align-items: flex-end;
   display: flex;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .single-category h2 {
-  font-size: 60px;
+  font-size: 20px;
   color: #fff;
   text-transform: uppercase;
-}
-
-.single-category:nth-child(even) {
-  margin-left: 12%;
-  margin-right: 12%;
 }
 
 .header-row {

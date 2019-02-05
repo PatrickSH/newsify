@@ -12,5 +12,6 @@
         <div id="app">
             @yield('content')
         </div>
+        <script src="js/app.js?ver={{rand(1,1000)}}"></script>
     </body>
 </html>

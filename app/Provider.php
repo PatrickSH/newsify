@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Article;
 
 class Provider extends Model
 {
@@ -17,4 +18,8 @@ class Provider extends Model
         'country_id', 'name', 'link',
         'copyright_greet'
     ];
+
+    public function articles(){
+        return $this->hasMany(Article::class,'provider_id');
+    }
 }

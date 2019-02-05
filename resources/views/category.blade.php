@@ -13,8 +13,8 @@
         <div class="row">
             <?php $count = 0; ?>
             @foreach($categories as $category)
-                <div class="col-lg-3 single-category">
-                    <h2>EB</h2>
+                <div class="col-lg-3 mr-3 single-category">
+                    <h2>{{$category['name']}}</h2>
                 </div>
             @endforeach
         </div>

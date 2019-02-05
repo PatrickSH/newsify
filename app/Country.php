@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Provider;
 
 class Country extends Model
 {
@@ -16,4 +17,8 @@ class Country extends Model
     protected $fillable = [
         'name', 'code', 'flag',
     ];
+
+    public function providers(){
+        return $this->hasMany(Provider::class,'country_id');
+    }
 }

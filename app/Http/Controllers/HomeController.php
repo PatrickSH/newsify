@@ -6,11 +6,13 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Integrations\TV2;
 use App\Provider;
 use App\Article;
+use App\Country;
 
 class HomeController extends BaseController
 {
     public function index(){
-        return view('main');
+        $countries = Country::with('providers')->get();
+        return view('main',compact('countries'));
     }
 
     public function showProviderCats($provider){
