@@ -17,11 +17,12 @@ class HomeController extends BaseController
 
     public function showProviderCats($provider){
         $provider = Provider::where('name',strtoupper($provider))->first();
+        $providerName = $provider->name;
         $articles = Article::where('provider_id',$provider->id)->with('category')->get();
         $categories = [];
         foreach($articles as $category){
             $categories[$category->category->id] = ['name' => $category->category->name, 'id' => $category->category->id];
         }
-        return view('category',compact('categories'));
+        return view('category',compact('categories','providerName'));
     }
 }

@@ -14,3 +14,5 @@
 Route::get('/',['uses' => 'HomeController@index']);
 
 $router->get('/{provider}',['uses' => 'HomeController@showProviderCats']);
+
+$router->get('/{provider}/{category}',['uses' => 'CategoryController@index']);

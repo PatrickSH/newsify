@@ -4,7 +4,7 @@
     <div class="category">
         <div class="row header-row">
             <div class="col-lg-2 no-padding">
-                <h1>EB</h1>
+                <h1>{{$providerName}}</h1>
             </div>
             <div class="col-lg-10">
                 &nbsp;

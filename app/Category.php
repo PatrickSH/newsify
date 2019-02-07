@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Article;
 
 class Category extends Model
 {
@@ -16,5 +17,9 @@ class Category extends Model
     protected $fillable = [
         'country_id', 'name'
     ];
+
+    public function articles(){
+        return $this->hasMany(Article::class,'category_id');
+    }
 
 }

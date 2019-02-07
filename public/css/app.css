@@ -10581,3 +10581,11 @@ body {
   padding: 0px !important;
 }
 
+.article-in-category {
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+}
+

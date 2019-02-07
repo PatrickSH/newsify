@@ -6,7 +6,7 @@
         <title>Newsify</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="css/app.css?ver={{rand(1,1000)}}">
+        <link rel="stylesheet" type="text/css" href="/newsify/app/public/css/app.css?ver={{rand(1,1000)}}">
     </head>
     <body>
         <div id="app">
