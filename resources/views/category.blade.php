@@ -13,7 +13,7 @@
         <div class="row">
             <?php $count = 0; ?>
             @foreach($categories as $category)
-                <div class="col-lg-3 mr-3 single-category">
+                <div class="col-lg-3 mr-3 single-category" v-on:click="navigate('{{str_slug($providerName)}}/{{str_slug($category['name'])}}')">
                     <h2>{{$category['name']}}</h2>
                 </div>
             @endforeach

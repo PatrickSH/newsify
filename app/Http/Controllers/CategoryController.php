@@ -17,6 +17,6 @@ class CategoryController extends BaseController
         }])->get();
 
 
-        return view('articles',compact('categories'));
+        return view('articles',compact('categories','provider','name'));
     }
 }

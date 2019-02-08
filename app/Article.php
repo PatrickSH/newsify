@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Provider;
 
 class Article extends Model
 {
@@ -21,5 +22,8 @@ class Article extends Model
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id');
+    }
+    public function provider(){
+        return $this->belongsTo(Provider::class, 'provider_id');
     }
 }

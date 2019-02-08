@@ -10565,7 +10565,7 @@ a.text-dark:focus {
 
 html,
 body {
-  background-color: #fff;
+  background-color: #ebebeb;
   color: #636b6f;
   font-family: "Nunito", sans-serif;
   font-weight: 200;
@@ -10584,8 +10584,18 @@ body {
 .article-in-category {
   cursor: pointer;
   margin-top: 20px;
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
   padding: 20px;
+}
+
+.category-tag {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+  margin-left: 5px;
 }
 
