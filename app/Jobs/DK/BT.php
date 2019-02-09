@@ -34,10 +34,12 @@ class BT
         $country = Country::where('code','da_DK')->first();
         $provider = Provider::where('name','BT')->first();
         $articles = (new BTIntegration())->getAll();
+
         foreach($articles as $article){
+            $cat_name = (isset($article['category']) && !is_null($article['category'])) ? $article['category'] : 'Unnamed category';
             $category = Category::updateOrCreate(
-                ['country_id' => $country->id, 'name' => (isset($article['category']) && !is_null($article['category'])) ? $article['category'] : 'Unnamed category'],
-                ['country_id' => $country->id, 'name' => (isset($article['category']) && !is_null($article['category'])) ? $article['category'] : 'Unnamed category']
+                ['country_id' => $country->id, 'name' => $cat_name,'slug' => str_slug($cat_name)],
+                ['country_id' => $country->id, 'name' => $cat_name, 'slug' => str_slug($cat_name)]
             );
             if(Article::where('link_external',$article['link'])->count() > 0) return false; //Dont record if already in DB
             Article::create([

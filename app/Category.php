@@ -15,7 +15,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'country_id', 'name'
+        'country_id', 'name', 'slug'
     ];
 
     public function articles(){

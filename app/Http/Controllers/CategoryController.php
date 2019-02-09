@@ -12,7 +12,7 @@ class CategoryController extends BaseController
 {
     public function index($provider,$name){
         $provider_id = Provider::where('name',str_slug($provider))->first()->id;
-        $categories = Category::where('name',$name)->with(['articles' => function($query) use($provider_id){
+        $categories = Category::where('slug',str_slug($name))->with(['articles' => function($query) use($provider_id){
             $query->where('provider_id',$provider_id);
         }])->get();
 

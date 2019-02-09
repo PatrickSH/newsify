@@ -10590,6 +10590,10 @@ body {
   padding: 20px;
 }
 
+.single-article img {
+  max-width: 100%;
+}
+
 .category-tag {
   background-color: #fff;
   padding: 5px;

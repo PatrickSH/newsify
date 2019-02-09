@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-lg-10 mx-auto">
+        <div class="col-lg-10 mx-auto single-article">
             <div class="mt-5">
                 <h2>{{$article->headline}}</h2>
             </div>
